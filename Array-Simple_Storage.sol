@@ -5,7 +5,7 @@ pragma solidity 0.8.8;
 // A function to store these values (addowner), one to retrieve them (animalownerArray) and two mapping:
 // 1) OwnerToAnimal to retrieve the animal from the owner's name.
 // 2) NumberToOwner to retrieve Owner's name from its number.
-// There is another function to store your favorite animal and to retrieve it.
+// There are 2 functions to store your favorite animal and to retrieve it.
 
 contract SimpleStorage {
 
