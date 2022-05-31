@@ -1,0 +1,106 @@
+// SPDX-License-Identifier: MIT.                                            // this is a license identifier statement 
+
+pragma solidity 0.8.8;                                                      // this is how we choose solidity compiler version
+
+    
+ -   bool hasFavoriteNumber = true;                                          // booleans are variables with 'true' or 'false' value
+    
+ -   uint FavoriteNumber = 567;                                              // uint are numbers without sign 
+    
+ -   string FavoriteNumberInText = "five";                                   // string are variables with utf-8 values
+    
+ -   int FavoriteNumberInt = -6;                                             // int are variables with number positive or negative
+    
+ -   address myAddress = 0xDb86B5747763227eF362E9D2d44dD51bFdd6F3ce; 
+    
+ -   bytes32 favoritebytes = "cat";                                          // bytes variables are converted in bytes like 0xif34ino 
+    
+ -   struct Person {
+        uint age;                                                           // struct consent to create complex data structure with multiple variables
+        string name;
+        }   
+ 
+ -   uint[2] fixedArray;                                                     // array consent to create a list of structured data this is a fixed-lenght
+  
+ -   string[] dynamicArray;                                                  // this is a dynamic array ( we can creat array of structs)
+ 
+ -   string[] public PublicArray;                                            // if we declare an array as 'public' solidity create an automatic getter
+ 
+ -   function eatHamburgers(string _name, uint _amount) {                    // this is a 'function' declaration (we declare function variables with '_'
+                                                                                as a convenction)
+     }
+     
+ -   people.push(Person(16, "Vitalik"));                                      // '.push' add a variable at the end of the array (we use .push in functions
+ 
+ - function _addToArray(uint _number) private {                               // this is the way to declare a function as private (default is public)
+    numbers.push(_number);                                                       (we declare private function name with an '_' as convenction)
+    
+ -  string greeting = "What's up dog";                                       // this is a classic 'return' function (it's require the variable type in the
+                                                                                statement)
+    function sayHello() public returns (string) {                       
+    return greeting;
+    }   
+ 
+ -  uint rand = uint(keccak256(abi.encodePacked(_str)));                    // keccak map a number in an hexadecimal casual number
+
+ - // dichiazione dell'evento                                               // this is a classic event syntax 
+    event IntegersAdded(uint x, uint y, uint result);
+
+    function add(uint _x, uint _y) public {
+    uint result = _x + _y;
+    // attiva un evento per far sapere all'app che la funzione è stata chiamata:
+    emit IntegersAdded(_x, _y, result);
+    return result;
+ 
+ 
+ 
+ -  // For a financial app, storing a uint that holds the user's account balance:           //these are two mapping basic syntax
+    mapping (address => uint) public accountBalance;
+    // Or could be used to store / lookup usernames based on userId
+    mapping (uint => string) userIdToName;
+    
+    
+ - mapping (address => uint) favoriteNumber;
+
+ 
+ -  function setMyNumber(uint _myNumber) public {                                           // 'msg.sender' is the address who calls the function
+    // Update our `favoriteNumber` mapping to store `_myNumber` under `msg.sender`
+    favoriteNumber[msg.sender] = _myNumber;
+    // ^ The syntax for storing data in a mapping is just like with arrays
+    }
+
+    function whatIsMyNumber() public view returns (uint) {
+    // Retrieve the value stored in the sender's address
+    // Will be `0` if the sender hasn't called `setMyNumber` yet
+    return favoriteNumber[msg.sender];
+    } 
+    
+    
+-    function sayHiToVitalik(string memory _name) public returns (string memory) {              // basic 'require' syntax
+     // Compares if _name equals "Vitalik". Throws an error and exits if not true.
+     // (Side note: Solidity doesn't have native string comparison, so we
+     // compare their keccak256 hashes to see if the strings are equal)
+     require(keccak256(abi.encodePacked(_name)) == keccak256(abi.encodePacked("Vitalik")));
+     // If it's true, proceed with the function:
+     return "Hi!";
+     }   
+ 
+ 
+ -  contract BabyDoge is Doge {                                                             // 'is' is used to create inheritance 
+    function anotherCatchphrase() public returns (string memory) {
+    return "Such Moon BabyDoge";
+    }
+    }
+    
+    
+ - memory vs storage                                                                        // Storage refers to variables stored 
+                                                                                                permanently on the blockchain. 
+                                                                                                Memory variables are temporary, 
+                                                                                                and are erased between external 
+                                                                                                function calls to your contract. 
+                                                                                                Think of it like your computer's 
+                                                                                                hard disk vs RAM.   
+ 
+ 
+ 
+    
